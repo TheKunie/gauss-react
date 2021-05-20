@@ -2,8 +2,7 @@ import React from "react";
 import Display from "../display/Display";
 import PropTypes from "prop-types";
 import FactorExtractor from "../factorExtractor/factorExtract";
-import matrixTripleZero from "../operators/matrixTripleZero";
-import Operators from "";
+import Operators from "../operators/Operators";
 class InputView extends React.Component {
   constructor(props) {
     super(props);
