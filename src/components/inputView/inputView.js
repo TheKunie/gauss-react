@@ -28,6 +28,7 @@ class InputView extends React.Component {
     this.MatrixDisplay = this.MatrixDisplay.bind(this);
     this.settingToEx = this.settingToEx.bind(this);
     this.Calculate = this.Calculate.bind(this);
+    this.CalculateButton = this.CalculateButton.bind(this);
   }
 
   MatrixDisplay(array1, array2, array3) {
@@ -79,13 +80,15 @@ class InputView extends React.Component {
       {
         eq1Ex: FactorExtractor(this.state.eq1),
         eq2Ex: FactorExtractor(this.state.eq2),
-        eq3Ex: FactorExtractor(this.state.eq3),
-        viewSteps: true
+        eq3Ex: FactorExtractor(this.state.eq3)
       },
       () => {
         this.settingToEx();
       }
     );
+  }
+  CalculateButton() {
+    this.setState({ viewSteps: true });
   }
   Calculate() {
     var array1 = this.state.eq1Ex;
@@ -167,7 +170,7 @@ class InputView extends React.Component {
             </button>
           </div>
           <div className="col">
-            <button className="btn btn-primary" onClick={this.Calculate}>
+            <button className="btn btn-primary" onClick={this.CalculateButton}>
               Calculate
             </button>
           </div>
