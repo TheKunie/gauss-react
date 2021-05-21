@@ -11,13 +11,13 @@ import Input from '../input/Input';
         return(
             <div className="row">
                 <div className="col">
-                    <Display input={'$'+this.state.eq1+'$'}/>
+                    <Display input={this.state.eq1}/>
                 </div>  
                 <div className="col">
-                    <Display input={'$'+this.state.eq1+'$'}/>
+                    <Display input={this.state.eq1}/>
                 </div>  
                 <div className="col">
-                    <Display input={'$'+this.state.eq1+'$'}/>
+                    <Display input={this.state.eq1}/>
                 </div>  
             </div>
         );

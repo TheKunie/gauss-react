@@ -22,7 +22,7 @@ function stepOne(array1, array2, array3) {
 
   return (
     <div>
-      <Display input={tex1 + tex2 + tex3} />
+      <Display input={tex1 + tex2 + tex3} /> 
     </div>
   );
 }
