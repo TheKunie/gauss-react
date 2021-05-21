@@ -1,7 +1,7 @@
 import multi from "./multi";
-import math from "mathjs";
+import * as math from "mathjs";
 import TripleInformer from "../informers/tripleInformer";
-import matrixReader from "./matrixReader";
+import stepOne from "../Steps/stepOne";
 
 function TripleZero(array1, array2, array3) {
   const tripleZero = [
@@ -14,29 +14,48 @@ function TripleZero(array1, array2, array3) {
 
 function Operators(array1, array2, array3) {
   var triples = TripleZero(array1, array2, array3);
-  var tripInformer1;
-  var tripInformer2;
-  var tripInformer3;
 
+  var i;
+
+  // Triple zeros. VVVVVV
   if (triples[0] === true) {
-    var tripInformer = TripleInformer(array1, array2, array3, 1);
+    return TripleInformer(array1, array2, array3, 1);
   }
   if (triples[1] === true) {
-    var tripInformer = TripleInformer(array1, array2, array3, 2);
+    return TripleInformer(array1, array2, array3, 2);
   }
   if (triples[2] === true) {
-    var tripInformer = TripleInformer(array1, array2, array3, 3);
+    return TripleInformer(array1, array2, array3, 3);
   }
+
+  //-----------------------
+
   if (multi(array1, array2) !== false) {
-    var i = multi(array1, array2);
+    i = multi(array1, array2);
     if (array1[0] > 0) {
       array1 = array1 - math.multiply(i, array2);
+      return TripleInformer(array1, array2, array3, 1);
     }
     if (array1[0] < 0) {
       array1 = array1 + math.multiply(i, array2);
+      return TripleInformer(array1, array2, array3, 1);
     }
   }
-  multi(array1, array3);
+  if (multi(array1, array3) !== false) {
+    i = multi(array1, array3);
+    if (array1[0] > 0) {
+      array1 = array1 - math.multiply(i, array3);
+      return TripleInformer(array1, array2, array3, 1);
+    }
+    if (array1[0] < 0) {
+      array1 = array1 + math.multiply(i, array3);
+      return TripleInformer(array1, array2, array3, 1);
+    }
+  }
+
+  //------------------
+
+  return stepOne(array1, array2, array3);
 }
 
 export default Operators;

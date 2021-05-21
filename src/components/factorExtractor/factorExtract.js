@@ -29,6 +29,18 @@ function FactorExtractor(string) {
     d = 0;
   }
 
+  if (a === "") {
+    a = 1;
+  }
+  if (b === "") {
+    b = 1;
+  }
+  if (c === "") {
+    c = 1;
+  }
+  if (d === "") {
+    d = 1;
+  }
   var array = [a, b, c, d];
   array = array.map((i) => Number(i));
 

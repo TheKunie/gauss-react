@@ -3,13 +3,14 @@ import Display from "../display/Display";
 import PropTypes from "prop-types";
 import FactorExtractor from "../factorExtractor/factorExtract";
 import Operators from "../operators/Operators";
+
 class InputView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      eq1: "",
-      eq2: "",
-      eq3: "",
+      eq1: "x+y+z=2",
+      eq2: "6x-4y+5z=31",
+      eq3: "5x+2y+2z=13",
       eq1Ex: [],
       eq2Ex: [],
       eq3Ex: [],
@@ -18,7 +19,8 @@ class InputView extends React.Component {
       stringMatrix: "Enter the equations and press accept.",
       array1: ["a", "b", "c", "d"],
       array2: ["e", "f", "g", "h"],
-      array3: ["j", "k", "l", "i"]
+      array3: ["j", "k", "l", "i"],
+      viewSteps: false
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -53,9 +55,7 @@ class InputView extends React.Component {
     return matrix;
   }
   settingToEx() {
-    console.log(this.state.eq1Ex);
-    console.log(this.state.eq2Ex);
-    console.log(this.state.eq3Ex);
+    console.log("viewsteps" + this.state.viewSteps);
     this.setState(
       {
         stringMatrix: this.MatrixDisplay(
@@ -79,7 +79,8 @@ class InputView extends React.Component {
       {
         eq1Ex: FactorExtractor(this.state.eq1),
         eq2Ex: FactorExtractor(this.state.eq2),
-        eq3Ex: FactorExtractor(this.state.eq3)
+        eq3Ex: FactorExtractor(this.state.eq3),
+        viewSteps: true
       },
       () => {
         this.settingToEx();
@@ -90,7 +91,11 @@ class InputView extends React.Component {
     var array1 = this.state.eq1Ex;
     var array2 = this.state.eq2Ex;
     var array3 = this.state.eq3Ex;
-    Operators();
+    if (this.state.viewSteps === false) {
+      return null;
+    } else {
+      return <div>{Operators(array1, array2, array3)}</div>;
+    }
   }
 
   render() {
@@ -167,6 +172,7 @@ class InputView extends React.Component {
             </button>
           </div>
         </div>
+        <div>{this.Calculate()}</div>
       </div>
     );
   }
