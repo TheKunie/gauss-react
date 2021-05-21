@@ -1,0 +1,21 @@
+import * as math from 'mathjs'
+import fdec from './fracDecider'
+
+
+function typeNumber(array1) {
+    array1[0] = math.fraction(array1[0]);
+    array1[1] = math.fraction(array1[1]);
+    array1[2] = math.fraction(array1[2]);
+    array1[3] = math.fraction(array1[3]);
+  
+    array1[0] = fdec(array1[0]);
+    array1[1] = fdec(array1[1]);
+    array1[2] = fdec(array1[2]);
+    array1[3] = fdec(array1[3]);
+  
+  
+    return array1
+  
+}
+
+export default typeNumber;

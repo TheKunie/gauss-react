@@ -1,7 +1,7 @@
 import multi from "./multi";
 import * as math from "mathjs";
 import TripleInformer from "../informers/tripleInformer";
-import stepOne from "../Steps/stepOne";
+import stepWrapper from "../Steps/stepsWrapper";
 
 function TripleZero(array1, array2, array3) {
   const tripleZero = [
@@ -55,7 +55,7 @@ function Operators(array1, array2, array3) {
 
   //------------------
 
-  return stepOne(array1, array2, array3);
+  return stepWrapper(array1, array2, array3);
 }
 
 export default Operators;

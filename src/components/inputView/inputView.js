@@ -3,6 +3,7 @@ import Display from "../display/Display";
 import PropTypes from "prop-types";
 import FactorExtractor from "../factorExtractor/factorExtract";
 import Operators from "../operators/Operators";
+import MatrixDisplay from '../display/MatrixDisplay'
 
 class InputView extends React.Component {
   constructor(props) {
@@ -16,57 +17,36 @@ class InputView extends React.Component {
       eq3Ex: [],
       equation: "",
       matrix: "",
-      stringMatrix: "Enter the equations and press accept.",
+      stringMatrix: "Introdueix les equacions.",
       array1: ["a", "b", "c", "d"],
       array2: ["e", "f", "g", "h"],
       array3: ["j", "k", "l", "i"],
-      viewSteps: false
+      viewSteps: false,
+      accepted: false
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.MatrixDisplay = this.MatrixDisplay.bind(this);
     this.settingToEx = this.settingToEx.bind(this);
     this.Calculate = this.Calculate.bind(this);
     this.CalculateButton = this.CalculateButton.bind(this);
+    this.buttonRenderer = this.buttonRenderer.bind(this)
   }
 
-  MatrixDisplay(array1, array2, array3) {
-    //    var array1 = this.state.array1;
-    //    var array2 = this.state.array2;
-    //    var array3 = this.state.array3;
 
-    var a = array1[0];
-    var b = array1[1];
-    var c = array1[2];
-    var d = array1[3];
-
-    var e = array2[0];
-    var f = array2[1];
-    var g = array2[2];
-    var h = array2[3];
-
-    var i = array3[0];
-    var j = array3[1];
-    var k = array3[2];
-    var l = array3[3];
-
-    var matrix = `$\\begin{pmatrix}${a} & ${b} & ${c} & ${d}\\\\${e} & ${f} & ${g} & ${h}\\\\${i} & ${j} & ${k} & ${l}\\\\\\end{pmatrix}$`;
-
-    return matrix;
-  }
   settingToEx() {
     console.log("viewsteps" + this.state.viewSteps);
     this.setState(
       {
-        stringMatrix: this.MatrixDisplay(
+        stringMatrix: MatrixDisplay(
           this.state.eq1Ex,
           this.state.eq2Ex,
           this.state.eq3Ex
-        )
+        ),
+        accepted: true
       },
       () => {
-        console.log("stringMatrix: " + this.state.stringMatrix);
+      this.buttonRenderer() ;
       }
     );
   }
@@ -80,7 +60,8 @@ class InputView extends React.Component {
       {
         eq1Ex: FactorExtractor(this.state.eq1),
         eq2Ex: FactorExtractor(this.state.eq2),
-        eq3Ex: FactorExtractor(this.state.eq3)
+        eq3Ex: FactorExtractor(this.state.eq3),
+        
       },
       () => {
         this.settingToEx();
@@ -88,7 +69,8 @@ class InputView extends React.Component {
     );
   }
   CalculateButton() {
-    this.setState({ viewSteps: true });
+    this.setState({ viewSteps: true })
+    
   }
   Calculate() {
     var array1 = this.state.eq1Ex;
@@ -100,6 +82,15 @@ class InputView extends React.Component {
       return <div>{Operators(array1, array2, array3)}</div>;
     }
   }
+  buttonRenderer() {
+    if (this.state.accepted ===  false) {return null}
+    else if(this.state.accepted === true) {
+      return ( <button className="btn btn-primary" onClick={this.CalculateButton}>
+        Calcula!
+      </button>)
+      
+    }
+  }
 
   render() {
     return (
@@ -107,7 +98,7 @@ class InputView extends React.Component {
         <div className="container-fluid">
           <div className="row">
             <div className="col">
-              <label className="form-label">Equation 1</label>
+              <label className="form-label">Equació 1</label>
               <input
                 id="input-1"
                 type="text"
@@ -119,7 +110,7 @@ class InputView extends React.Component {
               ></input>
             </div>
             <div className="col">
-              <label className="form-label">Equation 2</label>
+              <label className="form-label">Equació 2</label>
               <input
                 id="input-2"
                 type="text"
@@ -131,7 +122,7 @@ class InputView extends React.Component {
               ></input>
             </div>
             <div className="col">
-              <label className="form-label">Equation 3</label>
+              <label className="form-label">Equació 3</label>
               <input
                 id="input-3"
                 type="text"
@@ -166,15 +157,14 @@ class InputView extends React.Component {
         <div className="row">
           <div className="col">
             <button className="btn btn-success" onClick={this.handleSubmit}>
-              Accept
+              Accepta
             </button>
           </div>
           <div className="col">
-            <button className="btn btn-primary" onClick={this.CalculateButton}>
-              Calculate
-            </button>
+          {this.buttonRenderer()}
           </div>
         </div>
+        <br></br>
         <div>{this.Calculate()}</div>
       </div>
     );

@@ -1,8 +1,16 @@
 import PropTypes from "prop-types";
 import plusPopper from "./plusPopper";
 import nan from "./nan";
+import * as math from 'mathjs';
+import fdec from '../formatters/fracDecider';
+
+
+
+
+
 
 function FactorExtractor(string) {
+  
   var str = string + "";
   var a = str.substring(0, str.lastIndexOf("x"));
   a = plusPopper(a);
@@ -41,8 +49,25 @@ function FactorExtractor(string) {
   if (d === "") {
     d = 1;
   }
+
+
   var array = [a, b, c, d];
-  array = array.map((i) => Number(i));
+
+  array[0] = math.fraction(array[0])
+  array[1] = math.fraction(array[1])
+  array[2] = math.fraction(array[2])
+  array[3] = math.fraction(array[3])
+
+  
+  console.log("-------------------------")
+
+  array[0] = fdec(array[0])
+  array[1] = fdec(array[1])
+  array[2] = fdec(array[2])
+  array[3] = fdec(array[3])
+
+  console.log("asdasfas:  "+array[0])
+
 
   return array;
 }

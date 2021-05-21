@@ -19,8 +19,8 @@ function App() {
         Gauss
       </h1>
       <p className="lead">
-        Solve quickly using <strong>Gauss</strong>. View every step with{" "}
-        <strong>LaTeX</strong>. Test equation: 5x+2y+1z=3
+        Ràpid utilitzant el mètode de <strong>Gauss</strong>. Visual mitjançant {" "}
+        <strong>KaTeX</strong>.
       </p>
       <br />
       <InputView />
