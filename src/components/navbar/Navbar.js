@@ -1,14 +1,26 @@
 import React from "react";
 import "../../assets/css/Navbar.css";
+import {Link} from 'react-router-dom'
+
+
+
+
+
+
+
+
+
+
 
 function Navbar() {
+  
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <form className="container-fluid justify-content-start">
-          <a className="navbar-brand font-weight-bold" id="branding" href="#">
-            Equation Solver
-          </a>
+          
+            <Link to="/" className="font-weight-bold" id="branding">Equation Solver</Link>
+          
         </form>
 
         <button
@@ -25,19 +37,14 @@ function Navbar() {
         <div className="collapse navbar-collapse" id="navbarText">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
-                Home
-              </a>
+              
+                <Link to="/" className="nav-link">Inici</Link>
+              
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
-                Features
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Help
-              </a>
+              
+                <Link to="/help" className="nav-link active">Ajuda</Link>
+              
             </li>
           </ul>
         </div>

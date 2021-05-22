@@ -18,4 +18,11 @@ function typeNumber(array1) {
   
 }
 
+function typeSingular(a) {
+    a = math.fraction(a);
+    a = fdec(a);
+}
+
+export {typeSingular};
+
 export default typeNumber;

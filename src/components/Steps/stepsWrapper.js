@@ -1,14 +1,24 @@
-import stepOne from './stepOne';
-import stepTwo from './stepTwo';
+import StepOne from './stepOne';
+import StepFour from './stepFour';
 
-function stepWrapper(array1, array2, array3) {
+
+
+function StepWrapper(array1, array2, array3) {
 
     return(
+        
         <div>
-            {stepOne(array1, array2, array3)}
-            
+            <div className="row">
+                <div className="col">
+                {StepOne(array1, array2, array3)}
+                </div>
+                
+            </div>
+            <br></br>    
+            {StepFour(array1, array2, array3)}
         </div>
+
     )
 }
 
-export default stepWrapper;
+export default StepWrapper;

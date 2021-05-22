@@ -5,6 +5,10 @@ function typeStart(a) {
     if(a === 0) {return 0}
     else if(math.isInteger(a) === true){return math.number(a)}
     else if(math.typeOf(a) === 'Fraction'){return math.format(a, { fraction: 'ratio' }) }
+    else if (math.isInteger(a) === false) {
+        a = math.fraction(a)
+        return math.format(a, { fraction: 'ratio' })
+    }
     
     else{return a}
 }
@@ -21,4 +25,5 @@ function typeString(array1) {
   
 }
 
+export {typeStart};
 export default typeString;

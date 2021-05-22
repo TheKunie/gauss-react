@@ -3,15 +3,16 @@ import Display from "../display/Display";
 import PropTypes from "prop-types";
 import FactorExtractor from "../factorExtractor/factorExtract";
 import Operators from "../operators/Operators";
-import MatrixDisplay from '../display/MatrixDisplay'
+import MatrixDisplay from '../display/MatrixDisplay';
+import {shouldComponentUpdate} from 'react';
 
 class InputView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      eq1: "x+y+z=2",
-      eq2: "6x-4y+5z=31",
-      eq3: "5x+2y+2z=13",
+      eq1: "",
+      eq2: "",
+      eq3: "",
       eq1Ex: [],
       eq2Ex: [],
       eq3Ex: [],
@@ -22,7 +23,8 @@ class InputView extends React.Component {
       array2: ["e", "f", "g", "h"],
       array3: ["j", "k", "l", "i"],
       viewSteps: false,
-      accepted: false
+      accepted: false,
+      renderAccept: true
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -30,7 +32,10 @@ class InputView extends React.Component {
     this.settingToEx = this.settingToEx.bind(this);
     this.Calculate = this.Calculate.bind(this);
     this.CalculateButton = this.CalculateButton.bind(this);
-    this.buttonRenderer = this.buttonRenderer.bind(this)
+    this.buttonRenderer = this.buttonRenderer.bind(this);
+    this.acceptButtonRenderer = this.acceptButtonRenderer.bind(this);
+    this.renderers = this.renderers.bind(this);
+    
   }
 
 
@@ -54,6 +59,10 @@ class InputView extends React.Component {
     const target = event.target;
     this.setState({ [target.name]: target.value });
   }
+  renderers(){
+    this.Calculate()
+    this.acceptButtonRenderer()
+  }
 
   handleSubmit() {
     this.setState(
@@ -69,7 +78,7 @@ class InputView extends React.Component {
     );
   }
   CalculateButton() {
-    this.setState({ viewSteps: true })
+    this.setState({ viewSteps: true, accepted: false, renderAccept: false }, ()=> {this.renderers()})
     
   }
   Calculate() {
@@ -79,8 +88,10 @@ class InputView extends React.Component {
     if (this.state.viewSteps === false) {
       return null;
     } else {
+      
       return <div>{Operators(array1, array2, array3)}</div>;
     }
+    
   }
   buttonRenderer() {
     if (this.state.accepted ===  false) {return null}
@@ -90,6 +101,10 @@ class InputView extends React.Component {
       </button>)
       
     }
+  }
+  acceptButtonRenderer() {
+    if(this.state.renderAccept === true) { return <button className="btn btn-success" onClick={this.handleSubmit}>Accepta</button>}
+    else {return <div><h1 className="display-6">Solució</h1><hr></hr></div>}
   }
 
   render() {
@@ -156,11 +171,10 @@ class InputView extends React.Component {
         <br />
         <div className="row">
           <div className="col">
-            <button className="btn btn-success" onClick={this.handleSubmit}>
-              Accepta
-            </button>
-          </div>
-          <div className="col">
+          {this.acceptButtonRenderer()}
+          <br></br>
+          <br></br>
+         
           {this.buttonRenderer()}
           </div>
         </div>
