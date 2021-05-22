@@ -1,7 +1,7 @@
 import * as math from 'mathjs'
 import typeString, {typeStart} from '../formatters/typeString'
 import typeNumber from '../formatters/typeNumber'
-import {useDispatch, connect} from 'react-redux'
+
 
 
 
