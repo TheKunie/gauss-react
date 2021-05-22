@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import FactorExtractor from "../factorExtractor/factorExtract";
 import Operators from "../operators/Operators";
 import MatrixDisplay from '../display/MatrixDisplay';
-import {shouldComponentUpdate} from 'react';
+
 
 class InputView extends React.Component {
   constructor(props) {
