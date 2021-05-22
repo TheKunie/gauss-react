@@ -1,6 +1,5 @@
 import "./assets/css/App.css";
 import Navbar from "./components/navbar/Navbar.js";
-import StepWrapper from './components/Steps/stepsWrapper'
 import InputView from "./components/inputView/inputView";
 
 

@@ -1,5 +1,5 @@
 import * as math from 'mathjs'
-import typeNumber, {typeSingular} from '../formatters/typeNumber'
+import typeNumber from '../formatters/typeNumber'
 import typeString2, {typeStart} from '../formatters/typeString2'
 import Display from "../display/Display";
 
