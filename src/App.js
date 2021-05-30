@@ -1,7 +1,7 @@
 import "./assets/css/App.css";
 import Navbar from "./components/navbar/Navbar.js";
 import InputView from "./components/inputView/inputView";
-
+import Visualizer from './components/visualizer/visualizer'
 
 import "./components/display/katex.min.css";
 import HelpPage from './components/HelpPage/helpPage'
@@ -20,8 +20,11 @@ function App() {
   return (
     
       <Switch>
+      
       <Route exact path="/">
         <div className="App">
+          
+          
           <Navbar></Navbar>
           <br />
           <br />
@@ -37,9 +40,13 @@ function App() {
           <br/>
           
         </div>
-      </Route>
-      <Route path="/help">
+        </Route>
+      <Route exact path="/help">
         <HelpPage />
+
+      </Route>
+      <Route exact path="/visualize">
+        <Visualizer />
 
       </Route>
     </Switch>
