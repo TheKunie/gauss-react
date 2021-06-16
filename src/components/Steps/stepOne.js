@@ -1,7 +1,7 @@
 import * as math from "mathjs";
 import Display from "../display/Display";
 import StepTwo from './stepTwo';
-import typeString, {typeStart} from '../formatters/typeString'
+import typeString, {typeStart, StringFactor} from '../formatters/typeString'
 import typeNumber from '../formatters/typeNumber'
 
 
@@ -30,13 +30,17 @@ function StepOne(array1, array2, array3) {
 
   array3 = math.subtract(array3, math.multiply(factor1, array1));
 
-  factor1 = typeStart(factor1)
-
-  var tex2 = `\\Large\\xRightarrow{R_{3}-${factor1}R_{1}}\\normalsize`;
+  var factor1_string = StringFactor(factor1)
 
   array1 = typeString(array1)
   array2 = typeString(array2)
   array3 = typeString(array3)
+
+  
+
+  var tex2 = `\\Large\\xRightarrow{R_{3}${factor1_string}R_{1}}\\normalsize`;
+
+
 
   var tex3 = `\\begin{pmatrix}
   ${array1[0]} & ${array1[1]} & ${array1[2]} & ${array1[3]}\\\\

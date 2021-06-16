@@ -13,6 +13,30 @@ function typeStart(a) {
     else{return a}
 }
 
+function StringFactor(a) {
+    if(a === 0) {return 0}
+    else if(math.isInteger(a) === true){
+       if (a > 0){
+           a = math.number(a)
+           return "+"+a
+        }
+       
+    }
+    else if(math.typeOf(a) === 'Fraction'){
+        if(a > 0){
+            return "+"+math.format(a, { fraction: 'ratio' })
+        }
+        else{
+            return math.format(a, { fraction: 'ratio' })
+        }
+         }
+    else if (math.isInteger(a) === false) {
+        a = math.fraction(a)
+        StringFactor(a)
+    }
+    
+    else{return a}
+}
 
   
 function typeString(array1) {
@@ -26,4 +50,5 @@ function typeString(array1) {
 }
 
 export {typeStart};
+export {StringFactor};
 export default typeString;
