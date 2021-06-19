@@ -5,9 +5,6 @@ import rehypeKatex from "rehype-katex";
 import "./katex.min.css";
 
 function Display(props) {
-  if (props.input === "") {
-    props.input = "Ax+By+Cz=D";
-  }
   return (
     <Markdown
       remarkPlugins={[remarkMath]}

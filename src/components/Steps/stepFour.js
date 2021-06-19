@@ -6,7 +6,7 @@ import Display from "../display/Display";
 
 function StepFour(array1, array2, array3) {
 
-    console.log(array1, array2, array3)
+    
     // step One
     var factor1 = math.divide(array3[0], array1[0]);
     array3 = math.subtract(array3, math.multiply(factor1, array1));
@@ -19,7 +19,7 @@ function StepFour(array1, array2, array3) {
     var factor3 = math.divide(array3[1], array2[1]);
     array3 = math.subtract(array3, math.multiply(factor3, array2));
 
-    console.log(array1, array2, array3)
+    
 
 
 
@@ -33,7 +33,7 @@ function StepFour(array1, array2, array3) {
     array3 = typeString2(array3)
     
 
-    console.log(array1, array2, array3)
+    
 
     var tex1 = `$0x+0y+${array3[2]}z=${array3[3]}; z=${z}$`
 

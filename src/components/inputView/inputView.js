@@ -1,18 +1,27 @@
 import React from "react";
 import Display from "../display/Display";
-import PropTypes from "prop-types";
+
 import FactorExtractor from "../factorExtractor/factorExtract";
-import Operators from "../operators/Operators";
+import StepWrapper from '../Steps/stepsWrapper'
 import MatrixDisplay from '../display/MatrixDisplay';
+
+
+
+
+
+
+
+
+
 
 
 class InputView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      eq1: "",
-      eq2: "",
-      eq3: "",
+      eq1: "1x-2y+3z=9",
+      eq2: "-1x+3y-1z=-6",
+      eq3: "2x-5y+5z=17",
       eq1Ex: [],
       eq2Ex: [],
       eq3Ex: [],
@@ -24,7 +33,8 @@ class InputView extends React.Component {
       array3: ["j", "k", "l", "i"],
       viewSteps: false,
       accepted: false,
-      renderAccept: true
+      renderAccept: true,
+      
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -40,7 +50,7 @@ class InputView extends React.Component {
 
 
   settingToEx() {
-    console.log("viewsteps" + this.state.viewSteps);
+    
     this.setState(
       {
         stringMatrix: MatrixDisplay(
@@ -89,7 +99,7 @@ class InputView extends React.Component {
       return null;
     } else {
       
-      return <div>{Operators(array1, array2, array3)}</div>;
+      return <div>{StepWrapper(array1, array2, array3)}</div>;
     }
     
   }
@@ -107,62 +117,17 @@ class InputView extends React.Component {
     else {return <div><h1 className="display-6">Solució</h1><hr></hr></div>}
   }
 
+  
+
   render() {
     return (
       <div>
         <div className="container-fluid">
-          <div className="row">
-            <div className="col">
-              <label className="form-label">Equació 1</label>
-              <input
-                id="input-1"
-                type="text"
-                className="form-control"
-                placeholder="Ax + By + Cz = D"
-                value={this.state.eq1}
-                onChange={this.handleChange}
-                name="eq1"
-              ></input>
-            </div>
-            <div className="col">
-              <label className="form-label">Equació 2</label>
-              <input
-                id="input-2"
-                type="text"
-                className="form-control"
-                placeholder="Ax + By + Cz = D"
-                value={this.state.eq2}
-                onChange={this.handleChange}
-                name="eq2"
-              ></input>
-            </div>
-            <div className="col">
-              <label className="form-label">Equació 3</label>
-              <input
-                id="input-3"
-                type="text"
-                className="form-control"
-                placeholder="Ax + By + Cz = D"
-                value={this.state.eq3}
-                onChange={this.handleChange}
-                name="eq3"
-              ></input>
-            </div>
-          </div>
+          
         </div>
         <br />
 
-        <div className="row">
-          <div className="col">
-            <Display input={"$" + this.state.eq1 + "$"} />
-          </div>
-          <div className="col">
-            <Display input={"$" + this.state.eq2 + "$"} />
-          </div>
-          <div className="col">
-            <Display input={"$" + this.state.eq3 + "$"} />
-          </div>
-        </div>
+
         <div className="row">
           <div className="col">
             <Display input={this.state.stringMatrix} />
@@ -185,21 +150,6 @@ class InputView extends React.Component {
   }
 }
 
-//  5x+2y+1z=3
 
-InputView.propTypes = {
-  eq1: PropTypes.string,
-  eq2: PropTypes.string,
-  eq3: PropTypes.string,
-  eq1Ex: PropTypes.string,
-  eq2Ex: PropTypes.string,
-  eq3Ex: PropTypes.string,
-  equation: PropTypes.string,
-  matrix: PropTypes.string,
-  stringMatrix: PropTypes.string,
-  array1: PropTypes.array,
-  array2: PropTypes.array,
-  array3: PropTypes.array
-};
 
 export default InputView;

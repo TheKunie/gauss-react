@@ -46,11 +46,11 @@ function Navbar() {
                 <Link to="/help" className="nav-link active" replace>Ajuda</Link>
               
             </li>
-            <li className="nav-item">
+{/*             <li className="nav-item">
               
               <Link to="/visualize" className="nav-link active" replace>Representació</Link>
             
-          </li>
+          </li> */}
           </ul>
         </div>
       </nav>

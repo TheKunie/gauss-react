@@ -1,22 +1,31 @@
 import "./assets/css/App.css";
 import Navbar from "./components/navbar/Navbar.js";
 import InputView from "./components/inputView/inputView";
+import Input from './components/inputView/input'
 import Visualizer from './components/visualizer/visualizer'
-
 import "./components/display/katex.min.css";
 import HelpPage from './components/HelpPage/helpPage'
 import React from "react";
+import {useState} from 'react';
 import {
   Switch,
   Route
   
 } from "react-router-dom";
+import {useStoreState, useStoreActions} from 'easy-peasy'
+import StepWrapper from "./components/Steps/stepsWrapper";
+
+
 
 
 
 
 function App() {
   
+  const title = useStoreState((store)=>store.title)
+  const [titleInput, setTitleInput] = useState("")
+  const setTitle = useStoreActions((store)=> store.setTitle)
+
   return (
     
       <Switch>
@@ -32,13 +41,13 @@ function App() {
             Gauss
           </h1>
           <p className="lead">
-            Ràpid utilitzant el mètode de <strong>Gauss</strong>. Visual mitjançant {" "}
-            <strong>KaTeX</strong>.
+            Ràpid utilitzant el mètode de <strong>Gauss</strong>. Visual mitjançant 
+            <strong>  KaTeX</strong>.
           </p>
           <br />
-          <InputView />
+          <Input/>
           <br/>
-          
+          <StepWrapper/>
         </div>
         </Route>
       <Route exact path="/help">

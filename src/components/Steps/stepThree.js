@@ -9,7 +9,7 @@ import typeNumber from '../formatters/typeNumber'
 function StepThree(array1, array2, array3) {
     var factor1 = math.divide(array3[1], array2[1]);
 
-    console.log("mathdivide s3: "+factor1);
+    
     
   
   

@@ -7,7 +7,7 @@ import StepThree from './stepThree'
 
 function StepTwo(array1, array2, array3) {
   var factor1 = math.divide(array2[0], array1[0]);
-  console.log("mathdivide: "+factor1);
+  
 
 
 

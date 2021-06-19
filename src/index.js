@@ -8,8 +8,8 @@ import {
   HashRouter as Router,
 } from "react-router-dom";
 
-
-
+import {StoreProvider} from 'easy-peasy';
+import store from './store';
 
 
 
@@ -22,11 +22,13 @@ import {
 
 ReactDOM.render(
   <React.StrictMode>
+    <StoreProvider store={store}>
     <Router basename={process.env.PUBLIC_URL}>
       
         <App />
       
     </Router>
+    </StoreProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
