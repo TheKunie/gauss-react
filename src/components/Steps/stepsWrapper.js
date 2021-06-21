@@ -58,7 +58,7 @@ function StepWrapper(array1, array2, array3) {
           dependent: { bool: false, rowIndex: [] }
         };
       
-        console.log("determinant: " + determinant);
+        
       
         if (determinant !== 0) {
           obj.consistent = true;
@@ -82,7 +82,7 @@ function StepWrapper(array1, array2, array3) {
                 math.deepEqual(math.cross(arrayA[i%3], arrayA[(i+1)%3]),[0, 0, 0])){
 
               if(!math.deepEqual(vectorB[i%3], vectorB[(i+1)%3])){
-                  console.log("from inconsistent OSC")
+                  
                   obj.dependent.bool = false;
                   obj.dependent.rowIndex = [];
                   obj.inconsistent.bool = true;

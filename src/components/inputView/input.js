@@ -97,7 +97,7 @@ const Input = () => {
 
   const CalculateButtonRender = () => {
       const bool = useStoreState(state => state.accepted)
-      if(bool){console.log("accepted"); return(
+      if(bool){return(
         <div className="col">
           <button className="btn btn-info" onClick={()=>setCalculate(true)}>Calcula!</button>
         </div>

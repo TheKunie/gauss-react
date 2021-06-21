@@ -6,7 +6,7 @@ import * as math from 'mathjs';
 function frac(a) {
 
     if (math.isInteger(a) === false) {
-        console.log(a)
+        
         return math.format(a, { fraction: 'ratio' })
     }
 

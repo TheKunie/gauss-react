@@ -16,7 +16,7 @@ function MatrixDisplay(array1, array2, array3) {
   var j = frac(array3[1]);
   var k = frac(array3[2]);
   var l = frac(array3[3]);
-  console.log("matrix display gang :) : "+d)
+  
 
   var matrix = `$\\begin{pmatrix}${a} & ${b} & ${c} & ${d}\\\\${e} & ${f} & ${g} & ${h}\\\\${i} & ${j} & ${k} & ${l}\\\\\\end{pmatrix}$`;
 
