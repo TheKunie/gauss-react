@@ -15,7 +15,7 @@ import {Link} from 'react-router-dom'
 function Navbar() {
   
   return (
-    <div>
+    <>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <form className="container-fluid justify-content-start">
           
@@ -54,7 +54,7 @@ function Navbar() {
           </ul>
         </div>
       </nav>
-    </div>
+    </>
   );
 }
 

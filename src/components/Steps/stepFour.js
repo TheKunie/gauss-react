@@ -1,10 +1,79 @@
+
 import * as math from 'mathjs'
-import typeNumber from '../formatters/typeNumber'
-import typeString2, {typeStart} from '../formatters/typeString2'
 import Display from "../display/Display";
 
 
+const num = (a) => {
+    a = math.fraction(a);
+    if (math.isZero(a)) {
+      return 0;
+    } 
+    else if (math.isInteger(a)) {
+      return math.number(a);
+    } 
+    else {
+      return a;
+    }
+};
+  
+const string = (a, opt) => {
+  a = math.fraction(a); 
+  
+  
+  if (math.isZero(a)) {
+    if(opt){return "+0"}
+    return 0;
+  } else if (math.isInteger(a)) {
+    if (math.smaller(a, 0)) {
+      
+      return a;
+    } else {
+      
+      if(opt){a = "+" + a};
+      return a;
+    }
+  } else{
+    if (a.s===-1) {
+      a = a.n+"/"+a.d 
+      a = "-"+math.parse(a).toTex()
+      return a;
+    } 
+    else if(a.s===1){
+      a = a.n+"/"+a.d 
+      a = math.parse(a).toTex()
+      if(opt){a="+"+a}
+      return a;
+    }
+  }
+}
+
+  
+  
+const numArr = (array) => {
+    array[0] = num(array[0]);
+    array[1] = num(array[1]);
+    array[2] = num(array[2]);
+    array[3] = num(array[3]);
+    return array;
+};
+  
+
+
+
+
+
+
 function StepFour(array1, array2, array3) {
+
+
+
+    //TODO: FIX STRING()
+
+
+
+
+
+
 
     
     // step One
@@ -19,27 +88,19 @@ function StepFour(array1, array2, array3) {
     var factor3 = math.divide(array3[1], array2[1]);
     array3 = math.subtract(array3, math.multiply(factor3, array2));
 
-    
-
-
-
-
 
     var z = array3[3]/array3[2]
 
-    
-    array1 = typeString2(array1)
-    array2 = typeString2(array2)
-    array3 = typeString2(array3)
-    
+  
+
+    var tex1 = `$${string(array3[2])}z=${string(array3[3])}; z=${string(z)}$`
+
 
     
 
-    var tex1 = `$0x+0y+${array3[2]}z=${array3[3]}; z=${z}$`
 
-    array1 = typeNumber(array1)
-    array2 = typeNumber(array2)
-    array3 = typeNumber(array3)
+
+    
     
     
 
@@ -47,36 +108,31 @@ function StepFour(array1, array2, array3) {
     var temp2 = math.subtract(array2[3], temp1)
     var y = math.subtract(array2[3], temp1)/array2[1]
 
-    array1 = typeString2(array1)
-    array2 = typeString2(array2)
-    array3 = typeString2(array3)
-    temp1 = typeStart(temp1)
-    temp2 = typeStart(temp2)
+
+    
+    
 
 
 
 
-    var tex2 = `$0x${array2[1]}y${array2[2]}\\cdot (${z})=${array2[3]};${array2[1]}y=${temp2};y=${y}$`
+    var tex2 = `$${string(array2[1])}y${string(array2[2], true)}\\cdot (${string(z)})=${string(array2[3])};${string(array2[1])}y=${string(temp2)};y=${string(y)}$`
 
-    array1 = typeNumber(array1)
-    array2 = typeNumber(array2)
-    array3 = typeNumber(array3)
+
     
 
     temp1 = math.add(math.multiply(array1[1], y), math.multiply(array1[2], z))
     temp2 = math.subtract(array1[3], temp1)
     var x = math.divide(temp2, array1[0])
 
-    array1 = typeString2(array1)
-    array2 = typeString2(array2)
-    array3 = typeString2(array3)
 
 
 
 
 
-    var tex3 = `$ ${array1[0]}x ${array1[1]}\\cdot (${y})${array1[2]}\\cdot (${z})=${array1[3]};\\\\${array1[0]}x${temp1}=${array1[3]};
-    \\\\${array1[0]}x=${temp2}; x=${x}$`
+    var tex3 = `$ ${string(array1[0])}x ${string(array1[1], true)}\\cdot (${string(y)})${string(array1[2], true)}\\cdot (${string(z)})=
+    ${string(array1[3])};\\\\${string(array1[0])}x${string(temp1, true)}=${string(array1[3])};
+    \\\\${string(array1[0])}x=${string(temp2)}; x=${string(x)}$`
+
 
     return(
         <div className="row">
@@ -91,6 +147,7 @@ function StepFour(array1, array2, array3) {
         </div>
         </div>
     )
+    
 }
 
 

@@ -2,7 +2,6 @@ import "./assets/css/App.css";
 import Navbar from "./components/navbar/Navbar.js";
 import InputView from "./components/inputView/inputView";
 import Input from './components/inputView/input'
-import Visualizer from './components/visualizer/visualizer'
 import "./components/display/katex.min.css";
 import HelpPage from './components/HelpPage/helpPage'
 import React from "react";
@@ -41,8 +40,7 @@ function App() {
             Gauss
           </h1>
           <p className="lead">
-            Ràpid utilitzant el mètode de <strong>Gauss</strong>. Visual mitjançant 
-            <strong>  KaTeX</strong>.
+            Les equacions han de ser en forma implícita.
           </p>
           <br />
           <Input/>
@@ -51,11 +49,12 @@ function App() {
         </div>
         </Route>
       <Route exact path="/help">
+        <Navbar/>
         <HelpPage />
 
       </Route>
       <Route exact path="/visualize">
-        <Visualizer />
+        
 
       </Route>
     </Switch>

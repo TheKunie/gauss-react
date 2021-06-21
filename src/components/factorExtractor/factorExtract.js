@@ -15,6 +15,7 @@ function nan(str) {
 function plusPopper(string) {
   if (string.indexOf("+") !== -1) {return string.split("+").pop()} 
   
+  
   else {return string}
 }
 
@@ -32,6 +33,8 @@ function FactorExtractor(string) {
 
 
   // TODO: No Y parameter does not work
+  //? ????????????????????????? It does?????
+  // ! It doesnt with negative
   
 
   // extracting factors
@@ -39,13 +42,30 @@ function FactorExtractor(string) {
 
 
 
-  var str = string + "";                                                                    
+  var str = string + "";   
+  var c;                                                                 
   var a = str.substring(0, str.lastIndexOf("x"));                                                   
   a = plusPopper(a);                                                                        
   var b = str.substring(str.lastIndexOf("x") + 1, str.lastIndexOf("y"));            
   b = plusPopper(b);
-  var c = str.substring(str.lastIndexOf("y") + 1, str.lastIndexOf("z"));
-  c = plusPopper(c);
+
+  if (str.lastIndexOf("y")!==-1){
+    c = str.substring(str.lastIndexOf("y") + 1, str.lastIndexOf("z"));
+    c = plusPopper(c);
+  }
+  else if(str.lastIndexOf("y")===-1){
+    console.log("inval")
+    c = str.substring(str.lastIndexOf("x")+1, str.lastIndexOf("z"));                                                   
+    c = plusPopper(c);                                                                        
+  }
+  else if(str.lastIndexOf("x")===-1 && str.lastIndexOf("y")===-1){
+    console.log("c is the c")
+    c = str.substring(0, str.lastIndexOf("z"));
+    c = plusPopper(c)
+  }
+
+
+
   var d = str.substring(str.lastIndexOf("=") + 1, str.length);
   d = plusPopper(d);
   

@@ -1,5 +1,5 @@
 import * as math from "mathjs";
-import typeString, {typeStart} from '../formatters/typeString'
+import typeString, {typeStart, StringFactor} from '../formatters/typeString'
 import typeNumber from '../formatters/typeNumber'
 import StepThree from './stepThree'
 
@@ -13,9 +13,10 @@ function StepTwo(array1, array2, array3) {
 
   array2 = math.subtract(array2, math.multiply(factor1, array1));
 
-  factor1 = typeStart(factor1)
+  
+  var factor1_string = StringFactor(factor1)
 
-  var tex2 = `\\Large\\xRightarrow{R_{2}-${factor1}R_{1}}\\normalsize`;
+  var tex2 = `\\Large\\xRightarrow{R_{2}${factor1_string}R_{1}}\\normalsize`;
 
   array1 = typeString(array1)
   array2 = typeString(array2)

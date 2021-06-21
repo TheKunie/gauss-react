@@ -18,7 +18,13 @@ function StringFactor(a) {
     else if(math.isInteger(a) === true){
        if (a > 0){
            a = math.number(a)
-           return "+"+a
+           return "-"+a
+        }
+        else if (a<0){
+            a = math.number(a)
+            a = math.abs(a);
+            return "+"+a
+
         }
        
     }

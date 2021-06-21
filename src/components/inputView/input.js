@@ -7,7 +7,8 @@ import { useState, useRef, useEffect } from "react";
 import Display from "../display/Display";
 import FactorExtractor from "../factorExtractor/factorExtract";
 import MatrixDisplay from '../display/MatrixDisplay';
-import {useStoreState, useStoreActions} from 'easy-peasy'
+import {useStoreState, useStoreActions} from 'easy-peasy';
+import * as math from 'mathjs';
 
 
 /* ------------------------------ DECLARATIONS ------------------------------ */
@@ -97,7 +98,9 @@ const Input = () => {
   const CalculateButtonRender = () => {
       const bool = useStoreState(state => state.accepted)
       if(bool){console.log("accepted"); return(
+        <div className="col">
           <button className="btn btn-info" onClick={()=>setCalculate(true)}>Calcula!</button>
+        </div>
       )}
   }
 
@@ -120,7 +123,7 @@ const Input = () => {
             id="input-1"
             type="text"
             className="form-control"
-            placeholder="Ax + By + Cz = D"
+            placeholder="ax+by+cz=r"
             value={state.eq1}
             onChange={(e) => setState({ ...state, eq1: e.target.value })}
             name="eq1"
@@ -132,7 +135,7 @@ const Input = () => {
             id="input-2"
             type="text"
             className="form-control"
-            placeholder="Ax + By + Cz = D"
+            placeholder="ax+by+cz=r"
             value={state.eq2}
             onChange={(e) => setState({ ...state, eq2: e.target.value })}
             name="eq2"
@@ -144,7 +147,7 @@ const Input = () => {
             id="input-3"
             type="text"
             className="form-control"
-            placeholder="Ax + By + Cz = D"
+            placeholder="ax+by+cz=r"
             value={state.eq3}
             onChange={(e) => setState({ ...state, eq3: e.target.value })}
             name="eq3"
@@ -190,11 +193,11 @@ const Input = () => {
 
             onClick={()=>handleSubmit()}
 
-        >Accepta</button>
+        >{state.acceptButtonHit ? "Corregir":"Acceptar"}</button>
         </div>
-        <div className="col">
+        
         {CalculateButtonRender()}
-        </div>
+        
     </div>
 
     </div>

@@ -1,4 +1,5 @@
 import StepOne from './stepOne';
+import StepInconsistent from './stepInconsistent';
 import StepFour from './stepFour';
 import * as math from 'mathjs';
 import  {useStoreState} from 'easy-peasy';
@@ -25,6 +26,11 @@ function StepWrapper(array1, array2, array3) {
     // TODO: Fix signs in steps.
     // TODO: Implement Inconsistent/Dependent logic.
 
+    var firstRender = false;
+
+    
+
+
 
 
 
@@ -39,6 +45,8 @@ function StepWrapper(array1, array2, array3) {
     let array2Det = useStoreState((store)=>store.detArray2)
     let array3Det = useStoreState((store)=>store.detArray3)
     let vectorB = useStoreState((store) =>store.vectorB)
+
+    
 
 
     const EqType = () => {
@@ -95,11 +103,15 @@ function StepWrapper(array1, array2, array3) {
         if( condObj.consistent === true){
             return (
             <div>
+              <hr/>
                 <div className="row">
+                  
                     <div className="col">
                         <h1>Consistent</h1>
                     </div>
+                    
                 </div>
+                <br/>
                 <div className="row">
                     <div className="col">
                         {StepOne(array1, array2, array3)}
@@ -112,9 +124,14 @@ function StepWrapper(array1, array2, array3) {
             )
         }
         else if (condObj.inconsistent.bool){
+
             return(
                 <>
                 <h1>Inconsistent</h1>
+                <br/>
+                {StepInconsistent(array1, array2, array3, condObj)}
+
+
                 </>
         )}
         else if(condObj.dependent.bool){
@@ -128,6 +145,7 @@ function StepWrapper(array1, array2, array3) {
     if(!calcBool){return null}
     else if(calcBool){
         let obj = EqType()
+        
         return selectiveRender(localArray1, localArray2, localArray3, obj)
         
     }

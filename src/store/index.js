@@ -11,6 +11,7 @@ const store = createStore({
     vectorB: [],
     accepted: false,
     calculate: false,
+    stepThree: false,
     setArray1: action((state, payload) => {
         state.array1 = payload;
     }),
@@ -37,6 +38,9 @@ const store = createStore({
     }),
     setVectorB: action((state, payload)=> {
         state.vectorB = payload
+    }),
+    setStepThree: action((state, payload) => {
+        state.stepThree = payload
     })
 }, {initialState: {
     array1: [],

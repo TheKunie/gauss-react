@@ -24,9 +24,13 @@ function StepOne(array1, array2, array3) {
   ${array2[0]} & ${array2[1]} & ${array2[2]} & ${array2[3]}\\\\
   ${array3[0]} & ${array3[1]} & ${array3[2]} & ${array3[3]}\\end{pmatrix}`;
 
+  
+
   array1 = typeNumber(array1)
   array2 = typeNumber(array2)
   array3 = typeNumber(array3)
+
+  
 
   array3 = math.subtract(array3, math.multiply(factor1, array1));
 
