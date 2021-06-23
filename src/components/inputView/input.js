@@ -8,7 +8,7 @@ import Display from "../display/Display";
 import FactorExtractor from "../factorExtractor/factorExtract";
 import MatrixDisplay from '../display/MatrixDisplay';
 import {useStoreState, useStoreActions} from 'easy-peasy';
-import * as math from 'mathjs';
+
 
 
 /* ------------------------------ DECLARATIONS ------------------------------ */

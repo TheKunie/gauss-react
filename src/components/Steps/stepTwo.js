@@ -1,5 +1,5 @@
 import * as math from "mathjs";
-import typeString, {typeStart, StringFactor} from '../formatters/typeString'
+import typeString, {StringFactor} from '../formatters/typeString'
 import typeNumber from '../formatters/typeNumber'
 import StepThree from './stepThree'
 

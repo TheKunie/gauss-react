@@ -3,7 +3,7 @@ import * as math from 'mathjs'
 import Display from "../display/Display";
 
 
-const num = (a) => {
+/* const num = (a) => {
     a = math.fraction(a);
     if (math.isZero(a)) {
       return 0;
@@ -14,7 +14,7 @@ const num = (a) => {
     else {
       return a;
     }
-};
+}; */
   
 const string = (a, opt) => {
   a = math.fraction(a);
@@ -51,13 +51,13 @@ const string = (a, opt) => {
 
   
   
-const numArr = (array) => {
+/* const numArr = (array) => {
     array[0] = num(array[0]);
     array[1] = num(array[1]);
     array[2] = num(array[2]);
     array[3] = num(array[3]);
     return array;
-};
+}; */
   
 const Zero =(a)=>{
   let b = math.number("5e-10")

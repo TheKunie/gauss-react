@@ -54,37 +54,6 @@ const StringFactor = (a) => {
 
 
 
-function StringFacto(a) {
-    if(math.isZero(a)){return 0}
-
-    else if(math.isInteger(a) === true){
-       if (a > 0){
-           a = math.number(a)
-           return "-"+a
-        }
-        else if (a<0){
-            a = math.number(a)
-            a = math.abs(a);
-            return "+"+a
-
-        }
-       
-    }
-    else if(math.typeOf(a) === 'Fraction'){
-        if(a > 0){
-            return "+"+math.format(a, { fraction: 'ratio' })
-        }
-        else{
-            return math.format(a, { fraction: 'ratio' })
-        }
-         }
-    else if (math.isInteger(a) === false) {
-        a = math.fraction(a)
-        StringFactor(a)
-    }
-    
-    else{return a}
-}
 
   
 function typeString(array1) {

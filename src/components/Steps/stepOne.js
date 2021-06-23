@@ -1,7 +1,7 @@
 import * as math from "mathjs";
 import Display from "../display/Display";
 import StepTwo from './stepTwo';
-import typeString, {typeStart, StringFactor} from '../formatters/typeString'
+import typeString, {StringFactor} from '../formatters/typeString'
 import typeNumber from '../formatters/typeNumber'
 
 
