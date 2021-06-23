@@ -15,9 +15,9 @@ import * as math from 'mathjs';
 
 const Input = () => {
   const [state, setState] = useState({
-    eq1: "",
-    eq2: "",
-    eq3: "",
+    eq1: "1x-3y+1z=4",
+    eq2: "-1x+2y-5z=3",
+    eq3: "5x-13y+13z=8",
     array1: [],
     array2: [],
     array3: [],

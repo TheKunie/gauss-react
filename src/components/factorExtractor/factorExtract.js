@@ -54,12 +54,12 @@ function FactorExtractor(string) {
     c = plusPopper(c);
   }
   else if(str.lastIndexOf("y")===-1){
-    console.log("inval")
+    
     c = str.substring(str.lastIndexOf("x")+1, str.lastIndexOf("z"));                                                   
     c = plusPopper(c);                                                                        
   }
   else if(str.lastIndexOf("x")===-1 && str.lastIndexOf("y")===-1){
-    console.log("c is the c")
+    
     c = str.substring(0, str.lastIndexOf("z"));
     c = plusPopper(c)
   }
