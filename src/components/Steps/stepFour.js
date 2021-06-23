@@ -17,7 +17,9 @@ const num = (a) => {
 };
   
 const string = (a, opt) => {
-  a = math.fraction(a); 
+  a = math.fraction(a);
+/*   a = math.format(a, {precision: 5})
+  a = math.fraction(a)  */
   
   
   if (math.isZero(a)) {
@@ -57,7 +59,15 @@ const numArr = (array) => {
     return array;
 };
   
+const Zero =(a)=>{
+  let b = math.number("5e-10")
+  if(math.smaller(a, 0)){b = math.number("-5e-10")}
 
+  let temp = math.divide(a, b)
+  if(math.smaller(temp, 1)){a=0}
+  
+  return a
+}
 
 
 
@@ -81,7 +91,9 @@ function StepFour(array1, array2, array3) {
 
 
 
-      if(math.isZero(array3[2]) && !math.isZero(array3[3])){
+
+      if(math.isZero(Zero(array3[2])) && !math.isZero(Zero(array3[3]))){
+        
 
         let tex1 = `$\\text{Contradicció}: 0z \\not = ${string(array3[3])}$`
 

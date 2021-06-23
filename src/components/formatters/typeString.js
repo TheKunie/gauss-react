@@ -13,8 +13,50 @@ function typeStart(a) {
     else{return a}
 }
 
-function StringFactor(a) {
-    if(a === 0) {return 0}
+
+
+const StringFactor = (a) => {
+    a = math.fraction(a); 
+    
+    
+    if (math.isZero(a)) {
+      if(true){return "+0"}
+      return 0;
+    } else if (math.isInteger(a)) {
+      if (math.smaller(a, 0)) {
+          a = a.toString()
+          a = a.substr(1)
+          a = "+"+a
+        
+        return a;
+      } else {
+        
+        a = "-" + a
+        return a;
+      }
+    } else{
+      if (a.s===-1) {
+        a = a.n+"/"+a.d 
+        a = "+"+math.parse(a).toTex()
+        return a;
+      } 
+      else if(a.s===1){
+        a = a.n+"/"+a.d 
+        a = "-"+math.parse(a).toTex()
+        return a;
+      }
+    }
+  }
+
+
+
+
+
+
+
+function StringFacto(a) {
+    if(math.isZero(a)){return 0}
+
     else if(math.isInteger(a) === true){
        if (a > 0){
            a = math.number(a)
