@@ -56,7 +56,7 @@ function StepWrapper(array1, array2, array3) {
               
               </div>
               <br></br>    
-              {StepFour(localArray1, localArray2, localArray3)}
+              { StepFour(localArray1, localArray2, localArray3)}
           </div> 
           )
         

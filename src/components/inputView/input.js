@@ -15,9 +15,9 @@ import {useStoreState, useStoreActions} from 'easy-peasy';
 
 const Input = () => {
   const [state, setState] = useState({
-    eq1: "",
-    eq2: "",
-    eq3: "",
+    eq1: "2x+1y-3z=0",
+    eq2: "4x+2y-6z=0",
+    eq3: "1x-1y+1z=0",
     array1: [],
     array2: [],
     array3: [],
@@ -137,7 +137,7 @@ const Input = () => {
             className="form-control"
             placeholder="ax+by+cz=r"
             value={state.eq2}
-            onChange={(e) => setState({ ...state, eq2: e.target.value })}
+            onChange={(e) => setState({ ...state, eq2: e.target.value})}
             name="eq2"
           ></input>
         </div>
