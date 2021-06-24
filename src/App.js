@@ -39,6 +39,7 @@ function App() {
           <p className="lead">
             Les equacions han de ser en forma implícita.
           </p>
+          
           <br />
           <Input/>
           <br/>
