@@ -47,8 +47,8 @@ import  {useStoreState} from 'easy-peasy';
             var z2 = [];
             var z3 = [];
 
-            var lowerbound = -16
-            var upperbound = 16
+            var lowerbound = -51
+            var upperbound = 51
 
 
 
