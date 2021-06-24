@@ -105,7 +105,7 @@ function StepFour(array1, array2, array3) {
       if(math.isZero(Zero(array3[2])) && !math.isZero(Zero(array3[3]))){
         
 
-        let tex1 = `$\\text{Contradicció}: 0z \\not = ${string(array3[3])}$`
+        let tex1 = `\\text{Contradicció}: 0z \\not = ${string(array3[3])}`
 
         let texInc = tex1
   
@@ -148,12 +148,12 @@ function StepFour(array1, array2, array3) {
         temp1 = math.multiply(array3[2], -1);
         temp7 = math.divide(math.add(temp1, array3[3]), array3[1])
 
-        let tex1 = `$ z=\\lambda $`;
+        let tex1 = ` z=\\lambda `;
 
-        let tex2 = `$  ${string(array3[1])}y ${string(array3[2], true)}\\lambda = ${string(array3[3])};
+        let tex2 = `  ${string(array3[1])}y ${string(array3[2], true)}\\lambda = ${string(array3[3])};
                       ${string(array3[1])}y = ${string(temp1, false, true)}\\lambda ${string(array3[3], true, true)};\\\\
                       y = \\cfrac{${string(temp1)} ${string(array3[3], true, true)}}{${string(array3[1])}}\\lambda = ${string(temp7)}\\lambda
-                    $`;
+                    `;
 
         temp2 = math.multiply(array1[1], -1);
         temp3 = math.multiply(array1[2], -1);
@@ -163,13 +163,13 @@ function StepFour(array1, array2, array3) {
         temp8 = math.multiply(temp7, temp2)
         temp9 = math.add(temp8, temp3)
 
-        let tex3 = `$ ${string(array1[0])}x ${string(array1[1], true)}(${string(temp7)}\\lambda)
+        let tex3 = ` ${string(array1[0])}x ${string(array1[1], true)}(${string(temp7)}\\lambda)
                       ${string(array1[2], true)}\\lambda = ${string(array1[3], false)}; 
                       ${string(array1[0])}x = ${string(temp2)}(${string(temp7)}\\lambda) ${string(temp3, true)}\\lambda;\\\\
                       ${string(array1[0])}x = ${string(temp8)}\\lambda ${string(temp3, true)}\\lambda;
                       ${string(array1[0])}x = ${string(temp9)}\\lambda;
                       x = ${string(math.divide(temp9, array1[0]))}\\lambda
-                    $`;
+                    `;
 
 
         return (
@@ -199,21 +199,21 @@ function StepFour(array1, array2, array3) {
 
       var z = array3[3]/array3[2]
 
-      var tex1 = `$${string(array3[2])}z=${string(array3[3])};\\bold z=${string(z)}$`
+      var tex1 = `${string(array3[2])}z=${string(array3[3])};\\bold z=${string(z)}`
 
       var temp1 = math.multiply(z, array2[2])
       var temp2 = math.subtract(array2[3], temp1)
       var y = math.subtract(array2[3], temp1)/array2[1]
 
-      var tex2 = `$${string(array2[1])}y${string(array2[2], true)}\\cdot (${string(z)})=${string(array2[3])};${string(array2[1])}y=${string(temp2)};\\bold y=${string(y)}$`
+      var tex2 = `${string(array2[1])}y${string(array2[2], true)}\\cdot (${string(z)})=${string(array2[3])};${string(array2[1])}y=${string(temp2)};\\bold y=${string(y)}`
 
       temp1 = math.add(math.multiply(array1[1], y), math.multiply(array1[2], z))
       temp2 = math.subtract(array1[3], temp1)
       var x = math.divide(temp2, array1[0])
 
-      var tex3 = `$ ${string(array1[0])}x ${string(array1[1], true)}\\cdot (${string(y)})${string(array1[2], true)}\\cdot (${string(z)})=
+      var tex3 = ` ${string(array1[0])}x ${string(array1[1], true)}\\cdot (${string(y)})${string(array1[2], true)}\\cdot (${string(z)})=
       ${string(array1[3])};\\\\${string(array1[0])}x${string(temp1, true)}=${string(array1[3])};
-      \\\\${string(array1[0])}x=${string(temp2)};\\bold x=${string(x)}$`
+      \\\\${string(array1[0])}x=${string(temp2)};\\bold x=${string(x)}`
 
 
       return(

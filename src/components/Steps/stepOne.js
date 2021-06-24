@@ -24,7 +24,7 @@ function StepOne(array1, array2, array3) {
       
       
 
-      tex1 = `$
+      tex1 = `
       \\begin{pmatrix}
       ${array1[0]} & ${array1[1]} & ${array1[2]} & ${array1[3]}\\\\
       ${array2[0]} & ${array2[1]} & ${array2[2]} & ${array2[3]}\\\\
@@ -60,7 +60,7 @@ function StepOne(array1, array2, array3) {
           
             <div className="row">
               <div className="col">
-              <Display input={tex1+tex2+"$"} /> 
+              <Display input={tex1+tex2} /> 
               </div>
             </div>
         )

@@ -160,15 +160,15 @@ const Input = () => {
 
       <div className="row">
         <div className="col">
-        <Display input={"$"+state.eq1+"$"}/>
+        <Display input={state.eq1}/>
           
         </div>
         <div className="col">
-        <Display input={"$"+state.eq2+"$"}/>
+        <Display input={state.eq2}/>
           
         </div>
         <div className="col">
-        <Display input={"$"+state.eq3+"$"}/>
+        <Display input={state.eq3}/>
         </div>
       </div>
 

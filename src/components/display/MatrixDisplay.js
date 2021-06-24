@@ -18,7 +18,7 @@ function MatrixDisplay(array1, array2, array3) {
   var l = frac(array3[3]);
   
 
-  var matrix = `$\\begin{pmatrix}${a} & ${b} & ${c} & ${d}\\\\${e} & ${f} & ${g} & ${h}\\\\${i} & ${j} & ${k} & ${l}\\\\\\end{pmatrix}$`;
+  var matrix = `\\begin{pmatrix}${a} & ${b} & ${c} & ${d}\\\\${e} & ${f} & ${g} & ${h}\\\\${i} & ${j} & ${k} & ${l}\\\\\\end{pmatrix}`;
 
   return matrix;
 }

@@ -9,7 +9,7 @@ function Display(props) {
     <Markdown
       remarkPlugins={[remarkMath]}
       rehypePlugins={[rehypeKatex]}
-      children={props.input}
+      children={"$"+props.input+"$"}
     />
   );
 }
