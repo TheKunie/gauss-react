@@ -15,9 +15,9 @@ import {useStoreState, useStoreActions} from 'easy-peasy';
 
 const Input = () => {
   const [state, setState] = useState({
-    eq1: "2x+1y-3z=0",
-    eq2: "4x+2y-6z=0",
-    eq3: "1x-1y+1z=0",
+    eq1: "",
+    eq2: "",
+    eq3: "",
     array1: [],
     array2: [],
     array3: [],
