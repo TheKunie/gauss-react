@@ -49,7 +49,7 @@ function StepThree(array1, array2, array3) {
         return(tex)
       }
 
-      return (tex + StepThree(array1, array2, array3));
+      return (tex);
     }
     
     
@@ -58,7 +58,7 @@ function StepThree(array1, array2, array3) {
 
 
 
-    else{ return "$"}
+    else{ return ""}
 }
     
 

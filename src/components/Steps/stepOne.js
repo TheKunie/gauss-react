@@ -10,7 +10,7 @@ function StepOne(array1, array2, array3) {
   array2 = typeNumber(array2)
   array3 = typeNumber(array3)
 
-  var tex1 = "$"
+  var tex1 = ""
   var tex2 = ""
 
     if(!math.isZero(array3[0])){
