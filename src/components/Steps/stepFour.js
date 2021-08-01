@@ -81,21 +81,30 @@ function StepFour(array1, array2, array3) {
         // step One
         var factor1 = math.divide(array3[0], array1[0]);
         array3 = math.subtract(array3, math.multiply(factor1, array1));
+      }
 
-          }
       if(!math.isZero(array2[0])){
         // step Two
         var factor2 = math.divide(array2[0], array1[0]);
         array2 = math.subtract(array2, math.multiply(factor2, array1));
-
       }
+
       if(!math.deepEqual(array2, math.zeros(4))){
         if(!math.isZero(array3[1])){
         // step Three
         var factor3 = math.divide(array3[1], array2[1]);
         array3 = math.subtract(array3, math.multiply(factor3, array2));
+        }
+      }
 
-      }}
+
+      if(math.deepEqual(array2, math.zeros(4)) && math.deepEqual(array3, math.zeros(4))){
+
+        //! Two rows all zero
+
+
+        return null
+      }
 
 
 
@@ -128,6 +137,34 @@ function StepFour(array1, array2, array3) {
           </>
         )
       }
+
+      if(math.isZero(Zero(array2[2])) && !math.isZero(Zero(array2[3]))){
+        
+
+        let tex1 = `\\text{Contradicció}: 0z \\not = ${string(array2[3])}`
+
+        let texInc = tex1
+  
+        return(
+          <>
+            <div className="row">
+              <div className="col">
+                <Display input={texInc}/>
+  
+              </div>
+            </div>
+            <div className="row">
+              <div className="col">
+                <h3>Aquest sistema no té solució.</h3>
+              </div>
+            </div>
+  
+  
+  
+          </>
+        )
+      }
+
       else if(math.deepEqual(array2, math.zeros(4))){
 
         console.log(array1)
@@ -192,8 +229,74 @@ function StepFour(array1, array2, array3) {
 
       else if(math.deepEqual(array3, math.zeros(4))){
 
-        return <h1>Dependent</h1>
+
+        if(math.deepEqual(array3, math.zeros(4))){
+
+          console.log(array1)
+          console.log(array2)
+          console.log(array3)
+      
+      
+          let temp1;
+          let temp2;
+          let temp3;
+          let temp4;
+          let temp5;
+          let temp6;
+          let temp7;
+          let temp8;
+          let temp9;
+      
+          temp1 = math.multiply(array2[2], -1);
+          temp7 = math.divide(math.add(temp1, array2[3]), array2[1])
+      
+          let tex1 = ` z=\\lambda `;
+      
+          let tex2 = `  ${string(array2[1])}y ${string(array2[2], true)}\\lambda = ${string(array2[3])};
+                        ${string(array2[1])}y = ${string(temp1, false, true)}\\lambda ${string(array2[3], true, true)};\\\\
+                        y = \\cfrac{${string(temp1)} ${string(array2[3], true, true)}}{${string(array2[1])}}\\lambda = ${string(temp7)}\\lambda
+                      `;
+      
+          temp2 = math.multiply(array1[1], -1);
+          temp3 = math.multiply(array1[2], -1);
+          temp4 = math.multiply(temp2, temp1);
+          temp5 = math.multiply(temp2, array2[3]);
+          temp6 = math.multiply(array1[0], array2[1]);
+          temp8 = math.multiply(temp7, temp2)
+          temp9 = math.add(temp8, temp3)
+      
+          let tex3 = ` ${string(array1[0])}x ${string(array1[1], true)}(${string(temp7)}\\lambda)
+                        ${string(array1[2], true)}\\lambda = ${string(array1[3], false)}; 
+                        ${string(array1[0])}x = ${string(temp2)}(${string(temp7)}\\lambda) ${string(temp3, true)}\\lambda;\\\\
+                        ${string(array1[0])}x = ${string(temp8)}\\lambda ${string(temp3, true)}\\lambda;
+                        ${string(array1[0])}x = ${string(temp9)}\\lambda;
+                        x = ${string(math.divide(temp9, array1[0]))}\\lambda
+                      `;
+      
+      
+          return (
+            <>
+              <h2>Dependent</h2>
+              <div className="row">
+                <div className="col">
+                  <Display input={tex1}/>
+                </div>
+                <div className="col">
+                  <Display input={tex2}/>
+                </div>
+                <div className="col">
+                  <Display input={tex3}/>
+                </div>
+              </div>
+          
+            </>)
+        }
+        
       }
+        
+      
+
+
       else{
 
 
@@ -233,23 +336,6 @@ function StepFour(array1, array2, array3) {
 
 
 
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-    
 }
 
 

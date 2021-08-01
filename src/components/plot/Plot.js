@@ -28,6 +28,10 @@ import  {useStoreState} from 'easy-peasy';
     const array3 = useStoreState((store)=>store.array3);
     const bool = useStoreState((store)=>store.calculate)
 
+    if(bool){
+        if(math.equal(array1[2], 0)&&math.equal(array2[2], 0)&&math.equal(array3[2], 0)){return null}
+    }
+
     
     if(bool){
             if (!math.isZero(array1[2])){
