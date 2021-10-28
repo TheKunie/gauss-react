@@ -1,31 +1,32 @@
 import Navbar from '../navbar/Navbar'
-
+import '../../assets/css/helpPage.css'
 
 function HelpPage() {
     return (
-    <div className="container-fluid">
-        
-
+    
+           <div className="container-fluid helpPage">
+               <br/>
+               <br/>
+               <div className="row">
+                <div className="col">
                 <h1 className="display-3" id="h1">
                     Ajuda
                 </h1>
-                
+                </div>
+                </div>
+                <div className="row">
+                    <div className="col">
+                        <p className="lead">
 
-            
-            <div className="row align-items-start">
-                <div className="col align-self-start">
-                <p className="lead">
-                    Per resoldre el sistema només calen 3 passos.
-                </p>
-{/*                 <dl className="row">
-                    <dt class="col-sm-3">Primer pas</dt>
-                    <dd class="col-sm-9">Introdueix les equacions en forma implícita.</dd>
-                </dl> */}
+                            tesst
+
+                        </p>
+                    </div>
                 </div>
-                </div>
-           
+                
+            </div>
         
-    </div>
+    
     )
 }
 

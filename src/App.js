@@ -34,10 +34,10 @@ function App() {
           <br />
           <br />
           <h1 className="display-3" id="h1">
-            Mètode de Gauss
+            Gauss
           </h1>
           <p className="lead">
-            Introdueix les equacions en forma implícita, prem el botó i obtendràs la solució.
+            Introdueix les equacions als quadres de text.
           </p>
           
           <br />

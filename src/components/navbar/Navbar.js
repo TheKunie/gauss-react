@@ -19,7 +19,7 @@ function Navbar() {
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <form className="container-fluid justify-content-start">
           
-            <Link to="/" replace><a  className="navbar-brand font-weight-bold" id="branding">Equation Solver</a></Link>
+            <Link to="/" replace><a  className="navbar-brand font-weight-bold" id="branding">Gauss 42</a></Link>
           
         </form>
 
@@ -34,7 +34,7 @@ function Navbar() {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarText">
+{/*         <div className="collapse navbar-collapse" id="navbarText">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
               
@@ -46,13 +46,8 @@ function Navbar() {
                 <Link to="/help" className="nav-link active" replace>Ajuda</Link>
               
             </li>
-{/*             <li className="nav-item">
-              
-              <Link to="/visualize" className="nav-link active" replace>Representació</Link>
-            
-          </li> */}
           </ul>
-        </div>
+        </div> */}
       </nav>
     </>
   );

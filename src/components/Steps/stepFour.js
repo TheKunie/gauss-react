@@ -103,7 +103,7 @@ function StepFour(array1, array2, array3) {
         //! Two rows all zero
 
 
-        return null
+        return <h2>No hi ha suficient informació.</h2>
       }
 
 
