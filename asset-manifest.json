@@ -1,23 +1,24 @@
 {
   "files": {
-    "main.css": "/gauss-react/static/css/main.fb217978.chunk.css",
-    "main.js": "/gauss-react/static/js/main.d9ac833c.chunk.js",
-    "main.js.map": "/gauss-react/static/js/main.d9ac833c.chunk.js.map",
-    "runtime-main.js": "/gauss-react/static/js/runtime-main.657029e3.js",
-    "runtime-main.js.map": "/gauss-react/static/js/runtime-main.657029e3.js.map",
-    "static/js/2.25129bf8.chunk.js": "/gauss-react/static/js/2.25129bf8.chunk.js",
-    "static/js/2.25129bf8.chunk.js.map": "/gauss-react/static/js/2.25129bf8.chunk.js.map",
-    "static/js/3.31f83e4c.chunk.js": "/gauss-react/static/js/3.31f83e4c.chunk.js",
-    "static/js/3.31f83e4c.chunk.js.map": "/gauss-react/static/js/3.31f83e4c.chunk.js.map",
+    "main.css": "/gauss-react/static/css/main.fe90c9c5.chunk.css",
+    "main.js": "/gauss-react/static/js/main.0b2200e9.chunk.js",
+    "main.js.map": "/gauss-react/static/js/main.0b2200e9.chunk.js.map",
+    "runtime-main.js": "/gauss-react/static/js/runtime-main.e2858209.js",
+    "runtime-main.js.map": "/gauss-react/static/js/runtime-main.e2858209.js.map",
+    "static/js/2.d69b4ef1.chunk.js": "/gauss-react/static/js/2.d69b4ef1.chunk.js",
+    "static/js/2.d69b4ef1.chunk.js.map": "/gauss-react/static/js/2.d69b4ef1.chunk.js.map",
+    "static/js/3.114741ce.chunk.js": "/gauss-react/static/js/3.114741ce.chunk.js",
+    "static/js/3.114741ce.chunk.js.map": "/gauss-react/static/js/3.114741ce.chunk.js.map",
     "index.html": "/gauss-react/index.html",
-    "static/css/main.fb217978.chunk.css.map": "/gauss-react/static/css/main.fb217978.chunk.css.map",
-    "static/js/2.25129bf8.chunk.js.LICENSE.txt": "/gauss-react/static/js/2.25129bf8.chunk.js.LICENSE.txt",
+    "static/css/main.fe90c9c5.chunk.css.map": "/gauss-react/static/css/main.fe90c9c5.chunk.css.map",
+    "static/js/2.d69b4ef1.chunk.js.LICENSE.txt": "/gauss-react/static/js/2.d69b4ef1.chunk.js.LICENSE.txt",
+    "static/js/main.0b2200e9.chunk.js.LICENSE.txt": "/gauss-react/static/js/main.0b2200e9.chunk.js.LICENSE.txt",
     "static/media/katex.min.css": "/gauss-react/static/media/KaTeX_Typewriter-Regular.f9cbb9b2.woff"
   },
   "entrypoints": [
-    "static/js/runtime-main.657029e3.js",
-    "static/js/2.25129bf8.chunk.js",
-    "static/css/main.fb217978.chunk.css",
-    "static/js/main.d9ac833c.chunk.js"
+    "static/js/runtime-main.e2858209.js",
+    "static/js/2.d69b4ef1.chunk.js",
+    "static/css/main.fe90c9c5.chunk.css",
+    "static/js/main.0b2200e9.chunk.js"
   ]
 }
