@@ -11,7 +11,7 @@ import {
 } from "react-router-dom";
 import StepWrapper from "./components/Steps/stepsWrapper";
 import Plotter from "./components/plot/Plot";
-
+import Footer from './components/footer/footer.js'
 
 
 
@@ -34,10 +34,10 @@ function App() {
           <br />
           <br />
           <h1 className="display-3" id="h1">
-            Gauss
+            Mètode de Gauss
           </h1>
           <p className="lead">
-            Les equacions han de ser en forma implícita.
+            Introdueix les equacions en forma implícita, prem el botó i obtendràs la solució.
           </p>
           
           <br />
@@ -47,6 +47,7 @@ function App() {
           <br/>
            <Plotter/> 
         </div>
+        <Footer/>
         </Route>
       <Route exact path="/help">
         <Navbar/>
