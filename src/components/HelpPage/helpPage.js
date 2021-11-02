@@ -18,7 +18,7 @@ function HelpPage() {
                     <div className="col">
                         <p className="lead">
 
-                            tesst
+                            
 
                         </p>
                     </div>

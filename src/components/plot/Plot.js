@@ -46,6 +46,9 @@ import  {useStoreState} from 'easy-peasy';
                 eq.c = `(${array3[0]}x+${array3[1]}y-${array3[3]})/-${array3[2]}`
                 
             }
+            else{
+                return null
+            }
 
             var z1 = [];
             var z2 = [];
