@@ -39,12 +39,12 @@ const string = (a, opt, opt2) => {
   } else{
     if (a.s===-1) {
       a = a.n+"/"+a.d 
-      a = "-"+math.parse(a).toTex()
+      a = "\\Large -"+math.parse(a).toTex()+"\\normalsize"
       return a;
     } 
     else if(a.s===1){
       a = a.n+"/"+a.d 
-      a = math.parse(a).toTex()
+      a = "\\Large"+math.parse(a).toTex()+"\\normalsize"
       if(opt){a="+"+a}
       return a;
     }
@@ -111,10 +111,10 @@ function StepFour(array1, array2, array3) {
 
 
 
-      if(math.isZero(Zero(array3[2])) && !math.isZero(Zero(array3[3]))){
+      if(math.isZero(Zero(array3[2])) && math.isZero(Zero(array3[0])) && math.isZero(Zero(array3[1])) && !math.isZero(Zero(array3[3]))){
         
 
-        let tex1 = `\\text{Contradicció}: 0z \\not = ${string(array3[3])}`
+        let tex1 = `\\text{Contradicció}: 0 \\not = ${string(array3[3])}`
 
         let texInc = tex1
   
@@ -138,10 +138,10 @@ function StepFour(array1, array2, array3) {
         )
       }
 
-      if(math.isZero(Zero(array2[2])) && !math.isZero(Zero(array2[3]))){
+      if(math.isZero(Zero(array2[2])) && math.isZero(Zero(array2[0])) && math.isZero(Zero(array2[1])) && !math.isZero(Zero(array2[3]))){
         
 
-        let tex1 = `\\text{Contradicció}: 0z \\not = ${string(array2[3])}`
+        let tex1 = `\\text{Contradicció}: 0 \\not = ${string(array2[3])}`
 
         let texInc = tex1
   
@@ -211,7 +211,7 @@ function StepFour(array1, array2, array3) {
 
         return (
           <>
-            <h2>Dependent</h2>
+            <h2>Sistema Compatible Dependent</h2>
             <div className="row">
               <div className="col">
                 <Display input={tex1}/>
@@ -227,77 +227,93 @@ function StepFour(array1, array2, array3) {
           </>)
       }
 
+      
+
+
       else if(math.deepEqual(array3, math.zeros(4))){
 
-
-        if(math.deepEqual(array3, math.zeros(4))){
-
-          console.log(array1)
-          console.log(array2)
-          console.log(array3)
-      
-      
-          let temp1;
-          let temp2;
-          let temp3;
-          let temp4;
-          let temp5;
-          let temp6;
-          let temp7;
-          let temp8;
-          let temp9;
-      
-          temp1 = math.multiply(array2[2], -1);
-          temp7 = math.divide(math.add(temp1, array2[3]), array2[1])
-      
-          let tex1 = ` z=\\lambda `;
-      
-          let tex2 = `  ${string(array2[1])}y ${string(array2[2], true)}\\lambda = ${string(array2[3])};
-                        ${string(array2[1])}y = ${string(temp1, false, true)}\\lambda ${string(array2[3], true, true)};\\\\
-                        y = \\cfrac{${string(temp1)} ${string(array2[3], true, true)}}{${string(array2[1])}}\\lambda = ${string(temp7)}\\lambda
-                      `;
-      
-          temp2 = math.multiply(array1[1], -1);
-          temp3 = math.multiply(array1[2], -1);
-          temp4 = math.multiply(temp2, temp1);
-          temp5 = math.multiply(temp2, array2[3]);
-          temp6 = math.multiply(array1[0], array2[1]);
-          temp8 = math.multiply(temp7, temp2)
-          temp9 = math.add(temp8, temp3)
-      
-          let tex3 = ` ${string(array1[0])}x ${string(array1[1], true)}(${string(temp7)}\\lambda)
-                        ${string(array1[2], true)}\\lambda = ${string(array1[3], false)}; 
-                        ${string(array1[0])}x = ${string(temp2)}(${string(temp7)}\\lambda) ${string(temp3, true)}\\lambda;\\\\
-                        ${string(array1[0])}x = ${string(temp8)}\\lambda ${string(temp3, true)}\\lambda;
-                        ${string(array1[0])}x = ${string(temp9)}\\lambda;
-                        x = ${string(math.divide(temp9, array1[0]))}\\lambda
-                      `;
-      
-      
-          return (
-            <>
-              <h2>Dependent</h2>
-              <div className="row">
-                <div className="col">
-                  <Display input={tex1}/>
-                </div>
-                <div className="col">
-                  <Display input={tex2}/>
-                </div>
-                <div className="col">
-                  <Display input={tex3}/>
-                </div>
-              </div>
-          
-            </>)
-        }
         
+        console.log(array2)
+        console.log(array3)
+    
+    
+        let temp1;
+        let temp2;
+        let temp3;
+        let temp4;
+        let temp5;
+        let temp6;
+        let temp7;
+        let temp8;
+        let temp9;
+        let lambdaFinalY;
+        let offsetFinalY;
+        let lambdaFinalX;
+        let offsetFinalX;
+
+
+        temp1 = math.multiply(array2[2], -1);
+
+        lambdaFinalY = math.divide(temp1, array2[1]);
+        offsetFinalY = math.divide(array2[3], array2[1]);
+    
+        let tex1 = ` z=\\lambda `;
+    
+        let tex2 = `  ${string(array2[1])}y ${string(array2[2], true)}\\lambda = ${string(array2[3])};
+                      ${string(array2[1])}y = ${string(temp1, false, true)}\\lambda ${string(array2[3], true, true)};\\\\
+                      y = \\cfrac{${string(temp1)}\\lambda ${string(array2[3], true, true)}}{${string(array2[1])}} = 
+                      ${string(lambdaFinalY, false, true)}\\lambda ${string(offsetFinalY, true, true)}
+                    `;
+        temp2 = math.multiply(array1[1], lambdaFinalY);
+        temp3 = math.multiply(array1[1], offsetFinalY);
+        temp4 = math.add(temp2, array1[3]);
+        temp5 = math.multiply(temp4, -1);
+        temp6 = math.multiply(temp3, -1);
+        temp7 = math.add(array1[3], temp6);
+        lambdaFinalX = math.divide(temp5, array1[0]);
+        offsetFinalX = math.divide(temp7, array1[0]);
+
+
+        let tex3 = `${string(array1[0])}x ${string(array1[1], true)} (${string(lambdaFinalY, false, true)}\\lambda ${string(offsetFinalY, true, true)})
+                    ${string(array1[2], true)} \\lambda = ${string(array1[3])};\\\\ \\\\  ${string(array1[0])}x ${string(temp2, true)}\\lambda 
+                    ${string(temp3, true, true)} ${string(array1[2], true)} \\lambda = ${string(array1[3])}; \\\\ \\\\
+                    ${string(array1[0])}x ${string(temp4, true)}\\lambda ${string(temp3, true, true)} = ${string(array1[3], true)}; \\\\ \\\\
+                    ${string(array1[0])}x = ${string(temp5)} \\lambda  ${string(array1[3], true)} ${string(temp6, true, true)}; \\\\ \\\\
+                    x = \\cfrac{${string(temp5)}\\lambda ${string(temp7, true, true)}}{${string(array1[0])}} = ${string(lambdaFinalX)}\\lambda ${string(offsetFinalX, true, true)}`;
+    
+       /*  tex3 = ` ${string(array1[0])}x ${string(array1[1], true)}(${string(temp7)}\\lambda)
+                      ${string(array1[2], true)}\\lambda = ${string(array1[3], false)}; 
+                      ${string(array1[0])}x = ${string(temp2)}(${string(temp7)}\\lambda) ${string(temp3, true)}\\lambda;\\\\
+                      ${string(array1[0])}x = ${string(temp8)}\\lambda ${string(temp3, true)}\\lambda;
+                      ${string(array1[0])}x = ${string(temp9)}\\lambda;
+                      x = ${string(math.divide(temp9, array1[0]))}\\lambda
+                    `; */
+    
+    
+        return (
+          <>
+            <h2>Sistema Compatible Indeterminat</h2>
+            <div className="row">
+              <div className="col">
+                <Display input={tex1}/>
+              </div>
+              <div className="col">
+                <Display input={tex2}/>
+              </div>
+              <div className="col">
+                <Display input={tex3}/>
+              </div>
+            </div>
+        
+          </>)
       }
         
       
+        
+      
 
 
-      else{
+      else if(!math.equal(array3[2], 0)){
 
 
       var z = array3[3]/array3[2]
@@ -333,6 +349,8 @@ function StepFour(array1, array2, array3) {
           </div>
       )
       }
+
+      
 
 
 
